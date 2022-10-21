@@ -10,6 +10,7 @@ import ExcluirCliente from "./excluirCliente";
 import Excluir from "./excluir";
 import ExcluirProduto from "./excluirProduto";
 import ExcluirServico from "./excluirServico";
+import AtualizarCliente from "./atualizarCliente";
 
 console.log(`Bem-vindo ao cadastro de clientes do Grupo World Beauty`)
 let empresa = new Empresa()
@@ -26,6 +27,7 @@ while (execucao) {
     console.log(`7 - Cadastrar servico`);
     console.log(`8 - Listar todos os servicos`);
     console.log(`9 - Excluir servico`);
+    console.log(`10 - Atualizar cadastro de cliente`);
     console.log(`0 - Sair`);
 
     let entrada = new Entrada()
@@ -68,9 +70,13 @@ while (execucao) {
             let exclusaoServico = new ExcluirServico(empresa.getServicos)
             exclusaoServico.Excluir()
             break;
+        case 10:
+            let atualizarCliente = new AtualizarCliente(empresa.getClientes)
+            atualizarCliente.Atualizar()
+            break;
         case 0:
             execucao = false
-            console.log(`Até mais`)
+            console.log(`Até mais!`)
             break;
         default:
             console.log(`Operação não entendida :(`)

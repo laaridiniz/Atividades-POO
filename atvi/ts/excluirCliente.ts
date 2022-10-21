@@ -27,7 +27,7 @@ export default class ExcluirCliente extends Excluir {
                             console.log(`Cliente excluido com sucesso.`);
                             break
                         case 2:
-                            executa = false
+                            executa = true
                             console.log(`Cancelado`);
                             break
                             

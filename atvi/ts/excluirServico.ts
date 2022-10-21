@@ -16,15 +16,15 @@ export default class ExcluirServico extends Excluir {
         console.log(`\nInício da exclusão do servico`);
         while (executa){
             let busca = this.entrada.receberTexto(`Por favor informe o nome do serviço: `);
-            this.servicos.forEach(servico =>{
+            this.servicos.forEach(servico => {
                 if (servico.nome == busca){
-                    console.log(`Produto encontrado, nome: ${servico.nome}, deseja realmente excluir o serviço?`);
+                    console.log(`Serviço encontrado, nome: ${servico.nome}, deseja realmente excluir o serviço?`);
                     let confirma = this.entrada.receberNumero(`1 - Excluir, 2 - Cancelar`)
                     switch(confirma){
                         case 1:
                             let indice = this.servicos.indexOf(servico)
                             this.servicos.slice(indice, 1)
-                            console.log(`Serviço excluido com sucesso.`);
+                            console.log(`Serviço excluído com sucesso.`);
                             break
                         case 2:
                             executa = false

@@ -21,13 +21,11 @@ export default class AtualizarCliente extends Atualizar {
                 if (cliente.getCPF.getValor == busca){
                     console.log(`Cliente encontrado, nome: ${cliente.nome}. Qual campo deseja alterar?`);
                     let confirma = this.entrada.receberNumero(`1 - Nome, 2 - Nome Social, 3 - CPF, 4 - RG, 5 - Data de cadastro, 6 - Telefone,
-                    7 - Produtos consumidos, 8 - Serviços consumidos`)
+                    7 - Produtos consumidos, 8 - Serviços consumidos\n`)
                     switch(confirma){
                         case 1:
-                            this.entrada.receberTexto(`Digite o novo nome:`)
-                            let indice = this.clientes.indexOf(cliente)
-                            this.servicos.slice(indice, 1)
-                            console.log(`Serviço excluido com sucesso.`);
+                            cliente.nome = this.entrada.receberTexto(`Digite o novo nome:`)
+                            console.log(`Nome atualizado com sucesso.`);
                             break
                         case 2:
                             executa = false
@@ -37,9 +35,10 @@ export default class AtualizarCliente extends Atualizar {
                     }
                 }
                 else{
-                    console.log(`\n Nenhum serviço encontrado com o nome informado. \n`); 
+                    console.log(`\n Nenhum cliente encontrado com o nome informado. \n`); 
                 }
             })
+
                 
                         
         }

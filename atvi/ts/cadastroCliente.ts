@@ -2,10 +2,6 @@ import Cadastro from "./cadastro";
 import Cliente from "./cliente";
 import cpf from "./cpf";
 import Entrada from "./entrada";
-import Produto from "./produto";
-import Rg from "./rg";
-import Servico from "./servico";
-import Telefone from "./telefone";
 
 export default class CadastroCliente extends Cadastro {
     private clientes: Array<Cliente>
