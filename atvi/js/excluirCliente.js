@@ -25,6 +25,7 @@ class ExcluirCliente extends excluir_1.default {
                             let indice = this.clientes.indexOf(cliente);
                             this.clientes.slice(indice, 1);
                             console.log(`Cliente excluido com sucesso.`);
+                            executa = false;
                             break;
                         case 2:
                             executa = true;

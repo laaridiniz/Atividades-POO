@@ -19,12 +19,13 @@ export default class ExcluirCliente extends Excluir {
             this.clientes.forEach(cliente =>{
                 if (cliente.getCPF.getValor == busca){
                     console.log(`Cliente encontrado, nome: ${cliente.nome}, deseja realmente excluir o cliente?`);
-                    let confirma = this.entrada.receberNumero(`1 - Excluir, 2 - Cancelar`)
+                    let confirma = this.entrada.receberNumero(`1 - Excluir, 2 - Cancelar \n`)
                     switch(confirma){
                         case 1:
                             let indice = this.clientes.indexOf(cliente)
                             this.clientes.slice(indice, 1)
                             console.log(`Cliente excluido com sucesso.`);
+                            executa = false
                             break
                         case 2:
                             executa = true
