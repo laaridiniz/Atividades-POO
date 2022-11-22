@@ -13,29 +13,19 @@ class ExcluirServico extends excluir_1.default {
         this.entrada = new entrada_1.default();
     }
     Excluir() {
-        console.log(`\nInício da exclusão do servico`);
-        while (executa) {
-            let busca = this.entrada.receberTexto(`Por favor informe o nome do serviço: `);
-            this.servicos.forEach(servico => {
-                if (servico.nome == busca) {
-                    console.log(`Serviço encontrado, nome: ${servico.nome}, deseja realmente excluir o serviço?`);
-                    let confirma = this.entrada.receberNumero(`1 - Excluir, 2 - Cancelar`);
-                    switch (confirma) {
-                        case 1:
-                            let indice = this.servicos.indexOf(servico);
-                            this.servicos.slice(indice, 1);
-                            console.log(`Serviço excluído com sucesso.`);
-                            break;
-                        case 2:
-                            executa = false;
-                            console.log(`Cancelado`);
-                            break;
-                    }
-                }
-                else {
-                    console.log(`\n Nenhum serviço encontrado com o nome informado. \n`);
-                }
-            });
+        var _a;
+        var serviço = this.entrada.receberTexto("Informe o código do serviço que deseja excluir: ");
+        var index = this.servicos.findIndex(i => i.getCod === serviço);
+        console.log(`Serviço ` + ((_a = this.servicos.find(i => i.getCod === serviço)) === null || _a === void 0 ? void 0 : _a.nome));
+        console.log(`Realmente deseja excluir este produto?`);
+        var resp = this.entrada.receberNumero(`1 - Excluir, 2 - Cancelar`);
+        if (resp == 1) {
+            this.servicos.splice(index, 1);
+            console.log(`Serviço excluído com sucesso!`);
+            console.log(`----------------------------------------`);
+        }
+        else {
+            console.log(`Operação cancelada!`);
         }
     }
 }

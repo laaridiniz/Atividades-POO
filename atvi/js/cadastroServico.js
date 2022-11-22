@@ -14,8 +14,11 @@ class CadastroServico extends cadastro_1.default {
     }
     cadastrar() {
         console.log(`\nInício do cadastro do serviço`);
-        let nome = this.entrada.receberTexto(`Por favor informe o nome do serviço: `);
-        let servico = new servico_1.default(nome);
+        var cod = this.geraStringAleatoria(5);
+        var nome = this.entrada.receberTexto(`Por favor informe o nome do serviço: `);
+        var preco = this.entrada.receberNumero(`Digite o valor do serviço R$: `);
+        console.log(`O código gerado para este serviço é: ` + cod);
+        let servico = new servico_1.default(cod, nome, preco);
         this.servicos.push(servico);
         console.log(`\nCadastro concluído :)\n`);
     }

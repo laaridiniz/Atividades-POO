@@ -14,10 +14,12 @@ export default class CadastroProduto extends Cadastro {
 
     public cadastrar(): void {
         console.log(`\nInício do cadastro do produto`);
-        let nome = this.entrada.receberTexto(`Por favor informe o nome do produto: `);
-        let produto = new Produto(nome);
+        var cod = this.geraStringAleatoria(5);
+        var nome = this.entrada.receberTexto(`Por favor informe o nome do produto: `);
+        var preco = this.entrada.receberNumero(`Digite o valor do produto R$: `);
+        console.log(`O código gerado para esse produto é: `+cod);
+        let produto = new Produto(cod,nome,preco);
         this.produtos.push(produto)
         console.log(`\nCadastro concluído :)\n`);
     }
-
 }

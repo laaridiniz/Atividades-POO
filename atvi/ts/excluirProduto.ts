@@ -13,32 +13,18 @@ export default class ExcluirProduto extends Excluir {
         this.entrada = new Entrada()
     }
     public Excluir(): void {
-        console.log(`\nInício da exclusão do produto`);
-        while (executa){
-            let busca = this.entrada.receberTexto(`Por favor informe o nome do produto: `);
-            this.produtos.forEach(produto =>{
-                if (produto.nome == busca){
-                    console.log(`Produto encontrado, nome: ${produto.nome}, deseja realmente excluir o produto?`);
-                    let confirma = this.entrada.receberNumero(`1 - Excluir, 2 - Cancelar`)
-                    switch(confirma){
-                        case 1:
-                            let indice = this.produtos.indexOf(produto)
-                            this.produtos.slice(indice, 1)
-                            console.log(`Produto excluido com sucesso.`);
-                            break
-                        case 2:
-                            executa = false
-                            console.log(`Cancelado`);
-                            break
-                            
-                    }
-                }
-                else{
-                    console.log(`\n Nenhum produto encontrado com o nome informado. \n`); 
-                }
-            })
-                
-                        
-        }
+        var produto = this.entrada.receberTexto("Informe o código do produto que deseja excluir: ");
+        var index = this.produtos.findIndex( i => i.getCod === produto);
+        console.log(`Produto `+ this.produtos.find(i => i.getCod === produto)?.nome);
+        console.log(`Realmente deseja excluir este produto?`);
+        var resp = this.entrada.receberNumero(`1 - Excluir, 2 - Cancelar`);
+        if (resp == 1){
+            this.produtos.splice(index, 1);
+            console.log(`Produto excluído com sucesso!`);
+            console.log(`----------------------------------------`);
+        } else {
+            console.log(`Operação cancelada!`);
+            
+        }   
     }
 }
