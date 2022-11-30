@@ -16,10 +16,10 @@ export default class CadastroServico extends Cadastro {
         console.log(`\nInício do cadastro do serviço`);
         var cod = this.geraStringAleatoria(5);
         var nome = this.entrada.receberTexto(`Por favor informe o nome do serviço: `);
-        var preco = this.entrada.receberNumero(`Digite o valor do serviço R$: `);
+        var preco = this.entrada.receberTexto(`Digite o valor do serviço: `);
+        var precoFormat = preco.replace(" ","").replace("R","").replace("$","").replace(".","").replace(",",".");
         console.log(`O código gerado para este serviço é: `+cod);
-        
-        let servico = new Servico(cod, nome,preco);
+        let servico = new Servico(cod, nome,parseInt(precoFormat));
         this.servicos.push(servico)
         console.log(`\nCadastro concluído :)\n`);
     }

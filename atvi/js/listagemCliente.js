@@ -16,11 +16,11 @@ class ListagemCliente extends listagem_1.default {
                 console.log(`Nome: ` + cliente.nome);
                 console.log(`Nome social: ` + cliente.nomeSocial);
                 console.log(`Gênero: ` + cliente.genero);
-                console.log(`RGs: \n`);
+                console.log(`RGs:`);
                 cliente.getRgs.forEach(rg => {
-                    console.log(`Nº` + rg.getNumero + ` Data de Emissão: ` + rg.getDataEmissao);
+                    console.log(`Nº ` + rg.getNumero + ` - Data de Emissão: ` + rg.getDataEmissao.toLocaleDateString());
                 });
-                console.log(`Telefones: \n`);
+                console.log(`Telefones:`);
                 cliente.getTelefones.forEach(tel => {
                     console.log(`(` + tel.getDdd + `) ` + tel.getNumero);
                 });

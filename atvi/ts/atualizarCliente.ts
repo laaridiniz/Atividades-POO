@@ -35,12 +35,12 @@ export default class AtualizarCliente extends Atualizar {
                             case 3:
                                 var novoCpf = this.entrada.receberTexto(`Digite o CPF: `);
                                 var novaData = this.entrada.receberTexto(`Digite a data de emissão do CPF (dd/mm/yyyy): `);
-                                cliente.setCpf = new cpf(novoCpf, new Date(novaData));
+                                cliente.setCpf = new cpf(novoCpf, this.formatData(novaData));
                                 console.log(`CPF atualizado com sucesso!`);
                             case 4: 
                                 cliente.getRgs.forEach(rg => {
                                     var i = 1;
-                                    console.log(i+`º Opção - `+rg.getNumero+` - `+rg.getDataEmissao);
+                                    console.log(i+`º Opção - `+rg.getNumero+` - `+rg.getDataEmissao.toLocaleDateString());
                                     i++
                                 });
                                 var opcao = this.entrada.receberNumero(`Escolha o RG que deseja alterar: `);
@@ -48,7 +48,7 @@ export default class AtualizarCliente extends Atualizar {
                                 var novaData = this.entrada.receberTexto(`Digite a data de emissão do RG (dd/mm/yyyy): `);
 
                                 cliente.getRgs[opcao - 1].setNum(novoRg);
-                                cliente.getRgs[opcao - 1].setDataEmissao(new Date(novaData));
+                                cliente.getRgs[opcao - 1].setDataEmissao(this.formatData(novaData));
 
                                 console.log(`RG atualizado com sucesso!`);
                             case 5:

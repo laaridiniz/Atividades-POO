@@ -12,7 +12,7 @@ export default class ListagemProdutos extends Listagem {
         console.log(`\nLista de produtos:`);
         if(this.produtos.length > 0){
             this.produtos.forEach(prod => {
-                console.log(`Código `+prod.getCod+` - `+prod.nome+`\nValor: `+prod.getValor);
+                console.log(`Código `+prod.getCod+` - `+prod.nome+`\nValor: `+this.formatter.format(prod.getValor));
                 console.log(`--------------------------------------`);
             });
         } else {

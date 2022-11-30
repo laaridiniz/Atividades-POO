@@ -31,8 +31,8 @@ class CadastroCliente extends cadastro_1.default {
         let plusRg = true;
         let rgs = [];
         while (plusRg) {
-            var rg = this.entrada.receberTexto(`Insira o número do RG: `);
-            var dataRg = this.entrada.receberTexto(`Insira a data de emissão do RG: `);
+            let rg = this.entrada.receberTexto(`Insira o número do RG: `);
+            let dataRg = this.entrada.receberTexto(`Insira a data de emissão do RG: `);
             var partesData = dataRg.split('/');
             var ano = new Number(partesData[2].valueOf()).valueOf();
             var mes = new Number(partesData[1].valueOf()).valueOf();
@@ -40,7 +40,7 @@ class CadastroCliente extends cadastro_1.default {
             var dataEmissao = new Date(ano, mes, dia);
             var novoRg = new rg_1.default(rg, dataEmissao);
             rgs.push(novoRg);
-            console.log(`RG cadastrado com sucesso!\n`);
+            console.log(`RG salvo!`);
             var opcao = this.entrada.receberNumero(`Digite 1 para adicionar outro RG ou 0 para seguir com o cadastro: `);
             if (opcao != 1) {
                 plusRg = false;
@@ -49,8 +49,8 @@ class CadastroCliente extends cadastro_1.default {
         let plusTel = true;
         let tels = [];
         while (plusTel) {
-            var ddd = this.entrada.receberTexto(`Insira o DDD do telefone: `);
-            var num = this.entrada.receberTexto(`Insira o número do telefone: `);
+            let ddd = this.entrada.receberTexto(`Insira o DDD do telefone: `);
+            let num = this.entrada.receberTexto(`Insira o número do telefone: `);
             var novoTel = new telefone_1.default(ddd, num);
             tels.push(novoTel);
             console.log(`Telefone cadastrado com sucesso!\n`);

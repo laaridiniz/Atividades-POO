@@ -10,4 +10,11 @@ export default abstract class Cadastro {
         }
         return stringAleatoria;
     }
+    formatData = (data: any) => {
+        var partesData = data.split('/');
+        var ano = new Number(partesData[2].valueOf()).valueOf();
+        var mes = new Number(partesData[1].valueOf()).valueOf();
+        var dia = new Number(partesData[0].valueOf()).valueOf();
+        return new Date(ano, mes, dia);
+    }
 }
