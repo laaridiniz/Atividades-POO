@@ -18,14 +18,17 @@ export default class ListaCliente extends Component<props> {
                     <thead>
                         <tr>
                             <th>Cliente</th>
+                            <th>Gênero</th>
                             <th>Produtos Comprados</th>
                             <th>Serviços Contratados</th>
+                            <th>Detalhes</th>
                         </tr>
                     </thead>
 
                     <tbody>
                         <tr>
                             <td>Ana Clara Vieira</td>
+                            <td>Feminino</td>
                             <td>15</td>
                             <td>4</td>
                             <td>
@@ -33,6 +36,7 @@ export default class ListaCliente extends Component<props> {
                         </tr>
                         <tr>
                             <td>Bernardo Fernandes</td>
+                            <td>Masculino</td>
                             <td>5</td>
                             <td>1</td>
                             <td>
@@ -40,6 +44,7 @@ export default class ListaCliente extends Component<props> {
                         </tr>
                         <tr>
                             <td>Cibele de Assis</td>
+                            <td>Feminino</td>
                             <td>2</td>
                             <td>6</td>
                             <td>

@@ -11,5 +11,11 @@ class Telefone {
     get getNumero() {
         return this.numero;
     }
+    setDDD(ddd) {
+        this.ddd = ddd;
+    }
+    setNum(numero) {
+        this.numero = numero;
+    }
 }
 exports.default = Telefone;

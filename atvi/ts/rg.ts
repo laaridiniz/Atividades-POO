@@ -1,15 +1,22 @@
 export default class Rg {
-    private valor: string
+    private numero: string
     private dataEmissao: Date
-    constructor(valor: string, dataEmissao: Date){
-        this.valor = valor
+    constructor(numero: string, dataEmissao: Date){
+        this.numero = numero
         this.dataEmissao = dataEmissao
 
     }
-    public get getValor(): string{
-        return this.valor
+    public get getNumero(): string{
+        return this.numero
     }
     public get getDataEmissao(): Date{
         return this.dataEmissao
     }
+    public setNum(numero: string){
+        return this.numero = numero
+    }
+    public setDataEmissao(dataEmissao: Date){
+        this.dataEmissao = dataEmissao
+    }
+
 }

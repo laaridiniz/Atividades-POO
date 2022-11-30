@@ -10,11 +10,16 @@ class ListagemServicos extends listagem_1.default {
         this.servicos = servicos;
     }
     listar() {
-        console.log(`\nLista de todos os serviços:`);
-        this.servicos.forEach(Servico => {
-            console.log(`Nome: ` + Servico.nome);
-            console.log(`--------------------------------------`);
-        });
+        console.log(`\nLista dos serviços:`);
+        if (this.servicos.length > 0) {
+            this.servicos.forEach(serv => {
+                console.log("Código: " + serv.getCod + " - " + serv.nome + "\nPreço: " + serv.getValor);
+                console.log(`--------------------------------------`);
+            });
+        }
+        else {
+            console.log(`\nNão há serviços cadastrados!`);
+        }
         console.log(`\n`);
     }
 }

@@ -14,8 +14,12 @@ class CadastroProduto extends cadastro_1.default {
     }
     cadastrar() {
         console.log(`\nInício do cadastro do produto`);
-        let nome = this.entrada.receberTexto(`Por favor informe o nome do produto: `);
-        let produto = new produto_1.default(nome);
+        var cod = this.geraStringAleatoria(5);
+        var nome = this.entrada.receberTexto(`Por favor informe o nome do produto: `);
+        var preco = this.entrada.receberTexto(`Digite o valor do produto: `);
+        var precoFormat = preco.replace(" ", "").replace("R", "").replace("$", "").replace(".", "").replace(",", ".");
+        console.log(`O código gerado para esse produto é: ` + cod);
+        let produto = new produto_1.default(cod, nome, parseInt(precoFormat));
         this.produtos.push(produto);
         console.log(`\nCadastro concluído :)\n`);
     }

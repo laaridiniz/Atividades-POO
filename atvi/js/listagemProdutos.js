@@ -10,11 +10,16 @@ class ListagemProdutos extends listagem_1.default {
         this.produtos = produtos;
     }
     listar() {
-        console.log(`\nLista de todos os produtos:`);
-        this.produtos.forEach(Produto => {
-            console.log(`Nome: ` + Produto.nome);
-            console.log(`--------------------------------------`);
-        });
+        console.log(`\nLista de produtos:`);
+        if (this.produtos.length > 0) {
+            this.produtos.forEach(prod => {
+                console.log(`Código ` + prod.getCod + ` - ` + prod.nome + `\nValor: R$` + this.formatter.format(prod.getValor));
+                console.log(`--------------------------------------`);
+            });
+        }
+        else {
+            console.log(`\nNão há produtos cadastrados`);
+        }
         console.log(`\n`);
     }
 }

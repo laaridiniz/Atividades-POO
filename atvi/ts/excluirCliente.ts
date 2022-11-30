@@ -5,41 +5,28 @@ import Excluir from "./excluir";
 let executa = true
 
 export default class ExcluirCliente extends Excluir {
+    
     private clientes: Array<Cliente>
-    private entrada: Entrada
+
     constructor(clientes: Array<Cliente>) {
         super()
         this.clientes = clientes
-        this.entrada = new Entrada()
     }
     public Excluir(): void {
-        console.log(`\nInício da exclusão do cliente`);
-        while (executa){
-            let busca = this.entrada.receberTexto(`Por favor informe o número do cpf do cliente: `);
-            this.clientes.forEach(cliente =>{
-                if (cliente.getCPF.getValor == busca){
-                    console.log(`Cliente encontrado, nome: ${cliente.nome}, deseja realmente excluir o cliente?`);
-                    let confirma = this.entrada.receberNumero(`1 - Excluir, 2 - Cancelar \n`)
-                    switch(confirma){
-                        case 1:
-                            let indice = this.clientes.indexOf(cliente);
-                            this.clientes.splice(indice, 1);
-                            console.log(`Cliente excluido com sucesso.`);
-                            executa = false
-                            break
-                        case 2:
-                            executa = true
-                            console.log(`Cancelado`);
-                            break
-                            
-                    }
-                }
-                else{
-                    console.log(`\n Nenhum cliente encontrado com o CPF informado. \n`); 
-                }
-            })
-                
-                        
-        }
+        let entrada = new Entrada();
+        var cliente = entrada.receberTexto("Informe o CPF do cliente que deseja deletar");
+        var index = this.clientes.findIndex( i => i.getCpf.getValor === cliente);
+        console.log(`Cliente `+ this.clientes.find(i => i.getCpf.getValor === cliente)?.nome);
+        console.log(`Realmente deseja excluir este cliente?`);
+        var resp = entrada.receberNumero(`1 - Excluir, 2 - Cancelar`);
+        if (resp == 1){
+            this.clientes.splice(index, 1);
+            console.log(`Cliente excluído com sucesso!`);
+            console.log(`----------------------------------------`);
+        } else {
+            console.log(`Operação cancelada!`);
+            
+        }   
     }
+    
 }
