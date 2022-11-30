@@ -22,8 +22,8 @@ export default class ExcluirCliente extends Excluir {
                     let confirma = this.entrada.receberNumero(`1 - Excluir, 2 - Cancelar \n`)
                     switch(confirma){
                         case 1:
-                            let indice = this.clientes.indexOf(cliente)
-                            this.clientes.slice(indice, 1)
+                            let indice = this.clientes.indexOf(cliente);
+                            this.clientes.splice(indice, 1);
                             console.log(`Cliente excluido com sucesso.`);
                             executa = false
                             break
