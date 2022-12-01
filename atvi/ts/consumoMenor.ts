@@ -20,8 +20,8 @@ export default class MenorConsumo extends Listagem{
       let nome: string;
       let cpf: string;
       let consumo_Total: number;
-      let ordenacao: any = [];
-      let quantidade_consumo: any = [];
+      let ordenacao: any[] = [];
+      let quantidade_consumo: any[] = [];
       var i = 1;
   
       this.clientes.forEach( cliente => {

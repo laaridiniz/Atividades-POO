@@ -22,7 +22,7 @@ export default class MaiorConsumo extends Listagem{
       let cpf 
       let consumo 
       let ordem
-      let quantidade_consumida: any  = [];
+      let quantidade_consumida: any[]  = [];
   
       this.clientes.forEach( cliente => {
         nome = cliente.nome;

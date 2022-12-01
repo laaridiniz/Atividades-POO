@@ -15,6 +15,14 @@ import Cliente from "./cliente";
 import cpf from "./cpf";
 import Rg from "./rg";
 import Telefone from "./telefone";
+import Servico from "./servico";
+import Produto from "./produto";
+import MaiorConsumo from "./consumoMaior";
+import GeneroCliente from "./clienteGenero";
+import GeneroConsumo from "./consumoGenero";
+import MenorConsumo from "./consumoMenor";
+import servicosProdutosConsumidos from "./servicosProdutos+Consumidos";
+import ConsumoValor from "./ConsumoValor";
 
 console.log(`Bem-vindo ao cadastro de clientes do Grupo World Beauty`)
 let empresa = new Empresa()
@@ -180,6 +188,8 @@ while (execucao) {
     console.log(`1 - Cliente`);
     console.log(`2 - Produto`);
     console.log(`3 - Serviço`);
+    console.log(`4 - Listagem`);
+    
     console.log(`0 - Sair`);
 
     let entrada = new Entrada()
@@ -266,6 +276,62 @@ while (execucao) {
                     break;
             }
             break;
+        case 4:
+            console.log("Listagem: \n");
+            if(empresa.getClientes.length)
+              console.log("1 - 10 clientes que mais consumiram produtos ou serviços, em quantidade\n");   
+              console.log("2 - Listagem clientes por gênero.\n");
+            if(empresa.getServicos.length || empresa.getProdutos.length)
+              console.log("3 - Listagem serviços ou produtos mais consumidos\n");
+            if(empresa.getServicos.length || empresa.getProdutos.length)
+              console.log("4 - Listagem serviços ou produtos mais consumidos por gênero\n");
+            if(empresa.getServicos.length || empresa.getProdutos.length)
+            console.log("5 - Listagem 10 clientes que menos consumiram produtos ou serviços\n");
+            console.log("6 - Listagem dos 5 clientes que mais consumiram em valor, não em quantidade\n");
+            console.log("0 - Voltar Para o Menu Principal\n");
+
+            let entrada = new Entrada()
+            let opcao = entrada.receberNumero("Escolha uma opção: ")
+
+            switch (opcao) {
+              case 1:
+                let consumoMaior = new MaiorConsumo(empresa)
+                consumoMaior.listar()
+                break;
+
+              case 2:
+                let generoCliente = new GeneroCliente(empresa.getClientes)
+                generoCliente.listar()
+                break;
+
+              case 3:
+                let produtosServicosMaisConsumidos = new servicosProdutosConsumidos(empresa.getClientes)
+                produtosServicosMaisConsumidos.listar()
+                break;
+
+              case 4:
+                let generoConsumo = new GeneroConsumo(empresa.getClientes,empresa.getProdutos, empresa.getServicos)
+                
+                generoConsumo.listar()
+                break;      
+
+              case 5:
+                let menorConsumo = new MenorConsumo(empresa)
+                menorConsumo.listar()
+                break; 
+
+              case 6:
+                let valorConsumo = new ConsumoValor(empresa.getClientes)
+                  valorConsumo.listar()
+                  break;
+
+              case 0:
+                console.log(`Até mais!`);
+                break;
+              default:
+                  break;
+            }
+        break;
         case 0:
             execucao = false
             console.log(`Até mais!`)
