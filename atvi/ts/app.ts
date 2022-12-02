@@ -13,7 +13,7 @@ import ExcluirServico from "./excluirServico";
 import AtualizarCliente from "./atualizarCliente";
 import Cliente from "./cliente";
 import cpf from "./cpf";
-import Rg from "./rg";
+import Rg from "./Rg";
 import Telefone from "./telefone";
 import Servico from "./servico";
 import Produto from "./produto";
@@ -36,34 +36,34 @@ let c4 = new Cliente('Antônia Brenda Dias', 'Toninha', 'F', new cpf('2110903953
 let c5 = new Cliente('Larissa Emanuelly Ramos', 'Lala', 'F', new cpf('796514966-49', new Date()),[new Rg('32703638-2', new Date()),new Rg('45896325-5', new Date())], [new Telefone('11', '26001416'), new Telefone('11', '983520073')])
 let c6 = new Cliente('Ian Osvaldo Viana', 'Ian', 'M', new cpf('165831536-70', new Date()),[new Rg('25033142-1', new Date()),new Rg('25033142-8', new Date())], [new Telefone('71', '36056107'), new Telefone('71', '987040118')])
 let c7 = new Cliente('Geraldo Levi Vitor Cavalcanti', 'Ge', 'M', new cpf('414484552-43', new Date()),[new Rg('42877132-4', new Date()),new Rg('42877132-8', new Date())], [new Telefone('65', '992084505'), new Telefone('45', '81507421')])
-let c8 = new Cliente('Renan André Duarte', 'Renan', 'F', new cpf('610219816-64', new Date()),[new RG('124419082-5', new Date())], [new Telefone('85', '785404758')])
-let c9 = new Cliente('Gerson', 'Penha', 'M', new CPF('78944778-53', new Date()),[new RG('894419082-5', new Date())], [new Telefone('95', '987404758')])
-let c10 = new Cliente('Diego', 'Dieguinho', 'M', new CPF('987584778-53', new Date()),[new RG('48919082-3', new Date()),new RG('39154097-1', new Date())], [new Telefone('12', '981504758'), new Telefone('45', '81507421')])
-let c11 = new Cliente('Larissa', 'Lari', 'F', new CPF('487544778-78', new Date()),[new RG('78919082-7', new Date()),new RG('25154097-x', new Date())], [new Telefone('23', '997504758'), new Telefone('41', '971507421')])
-let c12 = new Cliente('Stephanie', 'Stefy', 'F', new CPF('234544778-86', new Date()),[new RG('12319082-7', new Date()),new RG('78954097-x', new Date())], [new Telefone('15', '997504758'), new Telefone('89', '971507421')])
-let c13 = new Cliente('Alessandra', 'Sandra', 'F', new CPF('123444778-78', new Date()),[new RG('12469082-8', new Date()),new RG('78954097-x', new Date())], [new Telefone('87', '997504758'), new Telefone('12', '971507421')])
-let c14 = new Cliente('Joyce', 'Jojo', 'F', new CPF('586444778-25', new Date()),[new RG('4559082-8', new Date()),new RG('98554097-x', new Date())], [new Telefone('25', '997504758'), new Telefone('12', '9469529541')])
-let c15 = new Cliente('João', 'Jota', 'M', new CPF('5864448478-98', new Date()),[new RG('458415582-3', new Date()),new RG('98554097-7', new Date())], [new Telefone('11', '517504758'), new Telefone('45', '469529541')])
-let c16 = new Cliente('Gabriel', 'Biel', 'M', new CPF('7864448478-84', new Date()),[new RG('988415582-3', new Date()),new RG('98554097-1', new Date())], [new Telefone('11', '98704758'), new Telefone('12', '999529541')])
-let c17 = new Cliente('Rafael', 'Fael', 'M', new CPF('3544448478-13', new Date()),[new RG('124415582-7', new Date()),new RG('78554097-7', new Date())], [new Telefone('14', '517504758'), new Telefone('17', '469529541')])
-let c18 = new Cliente('Eduardo', 'Dudu', 'M', new CPF('1744448478-53', new Date()),[new RG('78515582-4', new Date()),new RG('968754097-5', new Date())], [new Telefone('12', '987504758'), new Telefone('12', '99952954')])
-let c19 = new Cliente('Sabrina', 'Cristina', 'F', new CPF('3674448478-26', new Date()),[new RG('971415582-x', new Date()),new RG('36554097-9', new Date())], [new Telefone('11', '987504758'), new Telefone('14', '364529541')])
-let c20 = new Cliente('Thales', 'Kerber', 'M', new CPF('7894448478-07', new Date()),[new RG('458415582-7', new Date()),new RG('36554097-2', new Date())], [new Telefone('21', '417504758'), new Telefone('17', '214529541')])
-let c21 = new Cliente('Vitoria', 'Vivi', 'F', new CPF('147448478-69', new Date()),[new RG('378415582-8', new Date()),new RG('985543647-2', new Date())], [new Telefone('11', '987504758'), new Telefone('12', '889529541')])
-let c22 = new Cliente('Tulio', 'Castro', 'M', new CPF('3894448478-24', new Date()),[new RG('988415582-5', new Date()),new RG('358554097-7', new Date())], [new Telefone('68', '3477504758'), new Telefone('24', '478952955')])
-let c23 = new Cliente('Gustavo', 'Gu', 'M', new CPF('2364448478-25', new Date()),[new RG('123415582-4', new Date()),new RG('985540958-9', new Date())], [new Telefone('12', '687504758'), new Telefone('12', '9695295417')])
-let c24 = new Cliente('Rafaela', 'Castro', 'F', new CPF('1464448478-20', new Date()),[new RG('878415582-x', new Date()),new RG('258554097-6', new Date())], [new Telefone('86', '789504758'), new Telefone('17', '99752954')])
-let c25 = new Cliente('Artur', 'Tutu', 'M', new CPF('967444847-14', new Date()),[new RG('614415582-4', new Date()),new RG('563525555-4', new Date())], [new Telefone('12', '877504758'), new Telefone('', '9969529541')])
-let c26 = new Cliente('Messias', 'Vitorino', 'M', new CPF('8464448478-36', new Date()),[new RG('4178415582-9', new Date()),new RG('4145568585-4', new Date())], [new Telefone('25', '565458744'), new Telefone('45', '3545747474')])
-let c27 = new Cliente('Amanda', 'Dioly', 'F', new CPF('5864448789-41', new Date()),[new RG('357155821-7', new Date()),new RG('9888885877-9', new Date())], [new Telefone('12', '354155774'), new Telefone('36', '854456452')])
-let c28 = new Cliente('Helena', 'Ravaglia', 'F', new CPF('5244448478-68', new Date()),[new RG('4387415582-8', new Date()),new RG('565889877-2', new Date())], [new Telefone('16', '88684858'), new Telefone('47', '558857474')])
-let c29 = new Cliente('Giovanna', 'Liparelli', 'F', new CPF('123587787-15', new Date()),[new RG('369415582-1', new Date()),new RG('357774447-3', new Date())], [new Telefone('13', '898744554'), new Telefone('11', '858554577')])
-let c30 = new Cliente('Rafaela', 'Queiroz', 'F', new CPF('2565455454-58', new Date()),[new RG('4575554474-7', new Date()),new RG('985540597-1', new Date())], [new Telefone('22', '6952214254'), new Telefone('12', '58747555')])
+let c8 = new Cliente('Renan André Duarte', 'Renan', 'F', new cpf('610219816-64', new Date()),[new Rg('1285648522-5', new Date())], [new Telefone('85', '785404758')])
+let c9 = new Cliente('Hadassa Lavínia', 'Had', 'F', new cpf('180.423.939-97', new Date()),[new Rg('13.326.064-1', new Date())], [new Telefone('85', '98139-3190')])
+let c10 = new Cliente('Luana Lívia', 'Luh', 'F', new cpf('254.228.447-42', new Date()),[new Rg('14.286.953-3', new Date()),new Rg('38.599.216-6', new Date())], [new Telefone('98', '2513-4323'), new Telefone('98', '98923-2249')])
+let c11 = new Cliente('Rosângela Luana', 'Roh', 'F', new cpf('952.682.049-55', new Date()),[new Rg('10.311.688-6', new Date()),new Rg('25.154.097-x', new Date())], [new Telefone('85', '3881-6192'), new Telefone('85', '98415-3778')])
+let c12 = new Cliente('Sônia Simone', 'Soninha', 'F', new cpf('279.463.136-59', new Date()),[new Rg('44.965.497-7', new Date()),new Rg('78.954.097-x', new Date())], [new Telefone('67', '2788-5571'), new Telefone('67', '99146-2470')])
+let c13 = new Cliente('Sueli Eloá', 'Suh', 'F', new cpf('158.396.612-95', new Date()),[new Rg('40.797.651-6', new Date()),new Rg('78.954.097-x', new Date())], [new Telefone('82', '3514-2194'), new Telefone('82', '98313-2650')])
+let c14 = new Cliente('Roberto Anthony', 'Rô', 'M', new cpf('360.631.745-08', new Date()),[new Rg('16.787.653-3', new Date()),new Rg('98.554.097-x', new Date())], [new Telefone('55', '2514-0055'), new Telefone('55', '99365-1708')])
+let c15 = new Cliente('Manuela Ester Pietra', 'Manu', 'F', new cpf('967.602.405-88', new Date()),[new Rg('41.664.915-4', new Date()),new Rg('98.554.097-7', new Date())], [new Telefone('95', '3627-9143'), new Telefone('95', '99840-7811')])
+let c16 = new Cliente('Vitor Raul', 'Vitinho', 'M', new cpf('455.923.736-00', new Date()),[new Rg('41.523.682-4', new Date()),new Rg('98.536.097-1', new Date())], [new Telefone('79', '2561-3461'), new Telefone('79', '98838-7764')])
+let c17 = new Cliente('Samuel Caleb Fogaça', 'Samu', 'M', new cpf('187.603.682-68', new Date()),[new Rg('49.322.223-6', new Date()),new Rg('78.586.097-7', new Date())], [new Telefone('44', '2551-5184'), new Telefone('44', '98903-8529')])
+let c18 = new Cliente('Sophia Luna Jéssica Ferreira', 'Sophi', 'F', new cpf('184.065.130-04', new Date()),[new Rg('28.358.281-9', new Date()),new Rg('96.875.409-5', new Date())], [new Telefone('96', '3974-0313'), new Telefone('96', '98848-4504')])
+let c19 = new Cliente('Tatiane Laura Nascimento', 'Taty', 'F', new cpf('844.172.673-67', new Date()),[new Rg('38.387.973-5', new Date()),new Rg('36.554.097-9', new Date())], [new Telefone('83', '3598-1048'), new Telefone('83', '98361-8221')])
+let c20 = new Cliente('Jennifer Emily da Cruz', 'Jeny', 'F', new cpf('019.607.162-39', new Date()),[new Rg('49.501.190-3', new Date()),new Rg('36.554.097-2', new Date())], [new Telefone('21', '3705-6350'), new Telefone('21', '98433-5474')])
+let c21 = new Cliente('Renata Vera Barros', 'Renatinha', 'F', new cpf('510.294.249-26', new Date()),[new Rg('37.841.582-8', new Date()),new Rg('45.960.976-2', new Date())], [new Telefone('91', '2715-4675'), new Telefone('91', '99743-1232')])
+let c22 = new Cliente('Yuri Oliver Benedito', 'Yuri', 'M', new cpf('679.466.271-06', new Date()),[new Rg('98.841.582-5', new Date()),new Rg('22.094.348-5', new Date())], [new Telefone('48', '2814-1679'), new Telefone('48', '99493-9634')])
+let c23 = new Cliente('João Gustavo Vinicius Figueiredo', 'João', 'M', new cpf('831.793.136-68', new Date()),[new Rg('123415582-4', new Date()),new Rg('985540958-9', new Date())], [new Telefone('12', '687504758'), new Telefone('12', '9695295417')])
+let c24 = new Cliente('Rafaela', 'Castro', 'F', new cpf('1464448478-20', new Date()),[new Rg('878415582-x', new Date()),new Rg('258554097-6', new Date())], [new Telefone('86', '789504758'), new Telefone('17', '99752954')])
+let c25 = new Cliente('Artur', 'Tutu', 'M', new cpf('967444847-14', new Date()),[new Rg('614415582-4', new Date()),new Rg('563525555-4', new Date())], [new Telefone('12', '877504758'), new Telefone('', '9969529541')])
+let c26 = new Cliente('Messias', 'Vitorino', 'M', new cpf('8464448478-36', new Date()),[new Rg('4178415582-9', new Date()),new Rg('4145568585-4', new Date())], [new Telefone('25', '565458744'), new Telefone('45', '3545747474')])
+let c27 = new Cliente('Amanda', 'Dioly', 'F', new cpf('5864448789-41', new Date()),[new Rg('357155821-7', new Date()),new Rg('9888885877-9', new Date())], [new Telefone('12', '354155774'), new Telefone('36', '854456452')])
+let c28 = new Cliente('Helena', 'Ravaglia', 'F', new cpf('5244448478-68', new Date()),[new Rg('4387415582-8', new Date()),new Rg('565889877-2', new Date())], [new Telefone('16', '88684858'), new Telefone('47', '558857474')])
+let c29 = new Cliente('Giovanna', 'Liparelli', 'F', new cpf('123587787-15', new Date()),[new Rg('369415582-1', new Date()),new Rg('357774447-3', new Date())], [new Telefone('13', '898744554'), new Telefone('11', '858554577')])
+let c30 = new Cliente('Rafaela', 'Queiroz', 'F', new cpf('2565455454-58', new Date()),[new Rg('4575554474-7', new Date()),new Rg('985540597-1', new Date())], [new Telefone('22', '6952214254'), new Telefone('12', '58747555')])
 
 let s1 = new Servico('URCNS','Unha',15);
 let s2 = new Servico('KAMDD','Limpeza',50);
 let s3 = new Servico('SFJID','Sobrancelha',60);
-let s4 = new Servico('DSERG','Corte',20);
+let s4 = new Servico('DSERg','Corte',20);
 let s5 = new Servico('WEERF','Maquiagem',70);
 let s6 = new Servico('TFRJE','Pedicure',40);
 let s7 = new Servico('RTUTE','Botox',80);
@@ -311,7 +311,6 @@ while (execucao) {
 
               case 4:
                 let generoConsumo = new GeneroConsumo(empresa.getClientes,empresa.getProdutos, empresa.getServicos)
-                
                 generoConsumo.listar()
                 break;      
 
