@@ -28,6 +28,7 @@ interface Data {
   cpf: string;
   qtdeServ: number;
   qtdeProd: number;
+  valor: string;
 }
 
 function createData(
@@ -37,8 +38,9 @@ function createData(
     cpf: string,
     qtdeServ: number,
     qtdeProd: number,
+    valor: string,
 ): Data {
-  return { nomeCliente, nomeSocial, genero, cpf, qtdeServ, qtdeProd };
+  return { nomeCliente, nomeSocial, genero, cpf, qtdeServ, qtdeProd, valor};
 }
 
 var formatter = new Intl.NumberFormat('pt-BR', {
@@ -47,15 +49,15 @@ var formatter = new Intl.NumberFormat('pt-BR', {
 })
 
 const rows = [
-  createData('Davi Elias', 'Davi', 'Masculino', '456.271.368-20', 10, 50),
-  createData('Larissa Diniz', 'Lari', 'Feminino', '423.395.638-01', 12, 5),
-  createData('Jeniffer Pereira', 'Jenny', 'Feminino', '452.856.987-40', 18, 25),
-  createData('Mateus Silva', 'Math', 'Masculino', '433.621.789-06', 3, 11),
-  createData('Everton Wanderley', 'Everton', 'Masculino', '412.423.365-04', 5, 7),
-  createData('Everton Wanderley', 'Everton', 'Masculino', '412.423.365-04', 5,7),
-  createData('Everton Wanderley', 'Everton', 'Masculino', '412.423.365-04', 5, 7),
-  createData('Everton Wanderley', 'Everton', 'Masculino', '412.423.365-04', 5, 7),
-  createData('Everton Wanderley', 'Everton', 'Masculino', '412.423.365-04', 5, 7),
+  createData('Davi Elias', 'Davi', 'Masculino', '456.271.368-20', 10, 50, formatter.format(1258.60)),
+  createData('Larissa Diniz', 'Lari', 'Feminino', '423.395.638-01', 12, 5, formatter.format(900.50)),
+  createData('Jeniffer Pereira', 'Jenny', 'Feminino', '452.856.987-40', 18, 25, formatter.format(1563.20)),
+  createData('Mateus Silva', 'Math', 'Masculino', '433.621.789-06', 3, 11, formatter.format(560.00)),
+  createData('Everton Wanderley', 'Everton', 'Masculino', '412.423.365-04', 5, 7, formatter.format(490.80)),
+  createData('Everton Wanderley', 'Everton', 'Masculino', '412.423.365-04', 5,7, formatter.format(490.80)),
+  createData('Everton Wanderley', 'Everton', 'Masculino', '412.423.365-04', 5, 7, formatter.format(490.80)),
+  createData('Everton Wanderley', 'Everton', 'Masculino', '412.423.365-04', 5, 7, formatter.format(490.80)),
+  createData('Everton Wanderley', 'Everton', 'Masculino', '412.423.365-04', 5, 7, formatter.format(490.80)),
 ];
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
@@ -103,6 +105,7 @@ const headCells: HeadCell[] = [
   { id: 'cpf', numeric: true, disablePadding: false, label: 'CPF' },
   { id: 'qtdeServ', numeric: true, disablePadding: false, label: 'Qtde. Serviços Consumidos' },
   { id: 'qtdeProd', numeric: true, disablePadding: false, label: 'Qtde. Produtos Consumidos' },
+  { id: 'valor', numeric: true, disablePadding: false, label: 'Valor Consumido' }
   ];
 
 interface EnhancedTableProps {
@@ -131,7 +134,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
             padding={headCell.disablePadding ? 'none' : 'normal'}
             sortDirection={orderBy === headCell.id ? order : false}
           >
-            {headCell.id === 'qtdeServ' || headCell.id === 'qtdeProd' ?
+            {headCell.id === 'qtdeServ' || headCell.id === 'qtdeProd' || headCell.id === 'valor' ?
             <>
               <TableSortLabel
                 active={orderBy === headCell.id}
@@ -297,6 +300,7 @@ export default function TabelaClientes() {
                       <TableCell align="right">{row.cpf}</TableCell>
                       <TableCell align="right">{row.qtdeServ}</TableCell>
                       <TableCell align="right">{row.qtdeProd}</TableCell>
+                      <TableCell align="right">{row.valor}</TableCell>
                     </TableRow>
                   );
                 })}
