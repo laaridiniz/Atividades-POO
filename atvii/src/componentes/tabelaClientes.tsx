@@ -19,19 +19,28 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
+import { SocialDistanceOutlined } from '@mui/icons-material';
 
 interface Data {
-  nomeProduto: string;
-  preco: string;
-  quantidade: number;
+  nomeCliente: string;
+  nomeSocial: string;
+  genero: string;
+  cpf: string;
+  qtdeServ: number;
+  qtdeProd: number;
+  valor: number;
 }
 
 function createData(
-  nomeProduto: string,
-  preco: string,
-  quantidade: number,
+    nomeCliente: string,
+    nomeSocial: string,
+    genero: string,
+    cpf: string,
+    qtdeServ: number,
+    qtdeProd: number,
+    valor: number,
 ): Data {
-  return { nomeProduto, preco, quantidade };
+  return { nomeCliente, nomeSocial, genero, cpf, qtdeServ, qtdeProd, valor};
 }
 
 var formatter = new Intl.NumberFormat('pt-BR', {
@@ -40,11 +49,15 @@ var formatter = new Intl.NumberFormat('pt-BR', {
 })
 
 const rows = [
-  createData('Máscara de hidratação', formatter.format(50.00), 20),
-  createData('Máscara de nutrição', formatter.format(80.00), 15),
-  createData('Kit shampoo e condicionador', formatter.format(100.00), 50),
-  createData('Esmalte', formatter.format(8.00), 10),
-  createData('Maquiagem completa', formatter.format(350.00), 100),
+  createData('Davi Elias', 'Davi', 'Masculino', '456.271.368-20', 10, 50, 1258.60),
+  createData('Larissa Diniz', 'Lari', 'Feminino', '423.395.638-01', 12, 5, 900.50),
+  createData('Jeniffer Pereira', 'Jenny', 'Feminino', '452.856.987-40', 18, 25, 1563.20),
+  createData('Mateus Silva', 'Math', 'Masculino', '433.621.789-06', 3, 11, 560.00),
+  createData('Everton Wanderley', 'Everton', 'Masculino', '412.423.365-04', 5, 7, 490.80),
+  createData('Everton Wanderley', 'Everton', 'Masculino', '412.423.365-04', 5,7, 490.80),
+  createData('Everton Wanderley', 'Everton', 'Masculino', '412.423.365-04', 5, 7, 490.80),
+  createData('Everton Wanderley', 'Everton', 'Masculino', '412.423.365-04', 5, 7, 490.80),
+  createData('Everton Wanderley', 'Everton', 'Masculino', '412.423.365-04', 5, 7, 490.80),
 ];
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
@@ -86,9 +99,13 @@ interface HeadCell {
 }
 
 const headCells: HeadCell[] = [
-  { id: 'nomeProduto', numeric: false, disablePadding: true, label: 'Nome do Produto' },
-  { id: 'preco', numeric: true, disablePadding: false, label: 'Preço' },
-  { id: 'quantidade', numeric: true, disablePadding: false, label: 'Quantidade Consumida' },
+  { id: 'nomeCliente', numeric: false, disablePadding: true, label: 'Nome do Produto'},
+  { id: 'nomeSocial', numeric: true, disablePadding: false, label: 'Nome Social' },
+  { id: 'genero', numeric: true, disablePadding: false, label: 'Gênero' },
+  { id: 'cpf', numeric: true, disablePadding: false, label: 'CPF' },
+  { id: 'qtdeServ', numeric: true, disablePadding: false, label: 'Qtde. Serviços Consumidos' },
+  { id: 'qtdeProd', numeric: true, disablePadding: false, label: 'Qtde. Produtos Consumidos' },
+  { id: 'valor', numeric: true, disablePadding: false, label: 'Valor Consumido' }
   ];
 
 interface EnhancedTableProps {
@@ -110,22 +127,14 @@ function EnhancedTableHead(props: EnhancedTableProps) {
   return (
     <TableHead>
       <TableRow>
-        {/* <TableCell padding="checkbox">
-          <Checkbox
-            indeterminate={numSelected > 0 && numSelected < rowCount}
-            checked={rowCount > 0 && numSelected === rowCount}
-            onChange={onSelectAllClick}
-            inputProps={{ 'aria-label': 'select all desserts' }}
-          />
-        </TableCell>*/}
-        {headCells.map((headCell) => (
+      {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
             align={headCell.numeric ? 'right' : 'left'}
             padding={headCell.disablePadding ? 'none' : 'normal'}
             sortDirection={orderBy === headCell.id ? order : false}
           >
-            {headCell.id === 'quantidade' ?
+            {headCell.id === 'qtdeServ' || headCell.id === 'qtdeProd' || headCell.id === 'valor' ?
             <>
               <TableSortLabel
                 active={orderBy === headCell.id}
@@ -150,65 +159,6 @@ function EnhancedTableHead(props: EnhancedTableProps) {
   );
 }
 
-// const useToolbarStyles = makeStyles((theme: Theme) =>
-//   createStyles({
-//     root: {
-//       paddingLeft: theme.spacing(2),
-//       paddingRight: theme.spacing(1),
-//     },
-//     highlight:
-//       theme.palette.type === 'light'
-//         ? {
-//             color: theme.palette.secondary.main,
-//             backgroundColor: lighten(theme.palette.secondary.light, 0.85),
-//           }
-//         : {
-//             color: theme.palette.text.primary,
-//             backgroundColor: theme.palette.secondary.dark,
-//           },
-//     title: {
-//       flex: '1 1 100%',
-//     },
-//   }),
-// );
-
-// interface EnhancedTableToolbarProps {
-//   numSelected: number;
-// }
-
-// const EnhancedTableToolbar = (props: EnhancedTableToolbarProps) => {
-//   const classes = useToolbarStyles();
-//   const { numSelected } = props;
-
-//   return (
-//     <Toolbar
-//       className={clsx(classes.root, {
-//         [classes.highlight]: numSelected > 0,
-//       })}
-//     >
-//       {numSelected > 0 ? (
-//         <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
-//           Produtos
-//         </Typography>
-//       )}
-//       {numSelected > 0 ? (
-//         <Tooltip title="Delete">
-//           <IconButton aria-label="delete">
-//             <DeleteIcon />
-//           </IconButton>
-//         </Tooltip>
-//       ) : (
-//         <Tooltip title="Filter list">
-//           <IconButton aria-label="filter list">
-//             <FilterListIcon />
-//           </IconButton>
-//         </Tooltip>
-//       )}
-//     </Toolbar>
-//   );
-// };
-
-
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -217,6 +167,7 @@ const useStyles = makeStyles((theme: Theme) =>
     paper: {
       width: '100%',
       marginBottom: theme.spacing(2),
+      padding: 10,
     },
     table: {
       minWidth: 750,
@@ -232,17 +183,20 @@ const useStyles = makeStyles((theme: Theme) =>
       top: 20,
       width: 1,
     },
+    label: {
+        textDecorationStyle: 'solid',
+    }
   }),
 );
 
-export default function EnhancedTable() {
+export default function TabelaClientes() {
   const classes = useStyles();
   const [order, setOrder] = React.useState<Order>('asc');
-  const [orderBy, setOrderBy] = React.useState<keyof Data>('quantidade');
+  const [orderBy, setOrderBy] = React.useState<keyof Data>('qtdeServ');
   const [selected, setSelected] = React.useState<string[]>([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   const handleRequestSort = (event: React.MouseEvent<unknown>, property: keyof Data) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -251,32 +205,32 @@ export default function EnhancedTable() {
   };
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelecteds = rows.map((n) => n.nomeProduto);
+      const newSelecteds = rows.map((n) => n.nomeCliente);
       setSelected(newSelecteds);
       return;
     }
     setSelected([]);
   };
 
-  const handleClick = (event: React.MouseEvent<unknown>, name: string) => {
-    const selectedIndex = selected.indexOf(name);
-    let newSelected: string[] = [];
+//   const handleClick = (event: React.MouseEvent<unknown>, name: string) => {
+//     const selectedIndex = selected.indexOf(name);
+//     let newSelected: string[] = [];
 
-    if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name);
-    } else if (selectedIndex === 0) {
-      newSelected = newSelected.concat(selected.slice(1));
-    } else if (selectedIndex === selected.length - 1) {
-      newSelected = newSelected.concat(selected.slice(0, -1));
-    } else if (selectedIndex > 0) {
-      newSelected = newSelected.concat(
-        selected.slice(0, selectedIndex),
-        selected.slice(selectedIndex + 1),
-      );
-    }
+//     if (selectedIndex === -1) {
+//       newSelected = newSelected.concat(selected, name);
+//     } else if (selectedIndex === 0) {
+//       newSelected = newSelected.concat(selected.slice(1));
+//     } else if (selectedIndex === selected.length - 1) {
+//       newSelected = newSelected.concat(selected.slice(0, -1));
+//     } else if (selectedIndex > 0) {
+//       newSelected = newSelected.concat(
+//         selected.slice(0, selectedIndex),
+//         selected.slice(selectedIndex + 1),
+//       );
+//     }
 
-    setSelected(newSelected);
-  };
+//     setSelected(newSelected);
+//   };
 
   const handleChangePage = (event: unknown, newPage: number) => {
     setPage(newPage);
@@ -287,9 +241,9 @@ export default function EnhancedTable() {
     setPage(0);
   };
 
-  const handleChangeDense = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setDense(event.target.checked);
-  };
+//   const handleChangeDense = (event: React.ChangeEvent<HTMLInputElement>) => {
+//     setDense(event.target.checked);
+//   };
 
   const isSelected = (name: string) => selected.indexOf(name) !== -1;
 
@@ -319,17 +273,17 @@ export default function EnhancedTable() {
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  const isItemSelected = isSelected(row.nomeProduto);
+                //   const isItemSelected = isSelected(row.nomeServico);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
                     <TableRow
                       hover
-                      onClick={(event) => handleClick(event, row.nomeProduto)}
+                    //   onClick={(event) => handleClick(event, row.nomeCliente)}
                       // role="checkbox"
                       // aria-checked={isItemSelected}
                       // tabIndex={-1}
-                      key={row.nomeProduto}
+                    //   key={row.nomeServico}
                       // selected={isItemSelected}
                     >
                       {/* <TableCell padding="checkbox">
@@ -339,10 +293,14 @@ export default function EnhancedTable() {
                         />
                       </TableCell> */}
                       <TableCell component="th" id={labelId} scope="row" padding="none">
-                        {row.nomeProduto}
+                        {row.nomeCliente}
                       </TableCell>
-                      <TableCell align="right">{row.preco}</TableCell>
-                      <TableCell align="right">{row.quantidade}</TableCell>
+                      <TableCell align="right">{row.nomeSocial}</TableCell>
+                      <TableCell align="right">{row.genero}</TableCell>
+                      <TableCell align="right">{row.cpf}</TableCell>
+                      <TableCell align="right">{row.qtdeServ}</TableCell>
+                      <TableCell align="right">{row.qtdeProd}</TableCell>
+                      <TableCell align="right">{formatter.format(row.valor)}</TableCell>
                     </TableRow>
                   );
                 })}
@@ -355,7 +313,7 @@ export default function EnhancedTable() {
           </Table>
         </TableContainer>
         <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
+          rowsPerPageOptions={[10, 25, 50]}
           component="div"
           count={rows.length}
           rowsPerPage={rowsPerPage}
