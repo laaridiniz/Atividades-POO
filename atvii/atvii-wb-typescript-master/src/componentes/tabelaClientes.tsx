@@ -274,7 +274,7 @@ export default function TabelaClientes() {
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
                 //   const isItemSelected = isSelected(row.nomeServico);
-                  const labelId = `enhanced-table-checkbox-${index}`;
+                  const labelId = `enhanced-table-${index}`;
 
                   return (
                     <TableRow
