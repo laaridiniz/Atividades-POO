@@ -21,17 +21,17 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
 
 interface Data {
-  nomeProduto: string;
+  nomeServico: string;
   preco: string;
   quantidade: number;
 }
 
 function createData(
-  nomeProduto: string,
+  nomeServico: string,
   preco: string,
   quantidade: number,
 ): Data {
-  return { nomeProduto, preco, quantidade };
+  return { nomeServico, preco, quantidade };
 }
 
 var formatter = new Intl.NumberFormat('pt-BR', {
@@ -40,11 +40,11 @@ var formatter = new Intl.NumberFormat('pt-BR', {
 })
 
 const rows = [
-  createData('Máscara de hidratação', formatter.format(50.00), 20),
-  createData('Máscara de nutrição', formatter.format(80.00), 15),
-  createData('Kit shampoo e condicionador', formatter.format(100.00), 50),
-  createData('Esmalte', formatter.format(8.00), 10),
-  createData('Maquiagem completa', formatter.format(350.00), 100),
+  createData('Corte Feminino', formatter.format(50.00), 20),
+  createData('Corte Masculino', formatter.format(30.00), 15),
+  createData('Hidratação', formatter.format(150.00), 50),
+  createData('Manicure', formatter.format(50.00), 10),
+  createData('Escova', formatter.format(250.00), 100),
 ];
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
@@ -86,7 +86,7 @@ interface HeadCell {
 }
 
 const headCells: HeadCell[] = [
-  { id: 'nomeProduto', numeric: false, disablePadding: true, label: 'Nome do Produto' },
+  { id: 'nomeServico', numeric: false, disablePadding: true, label: 'Nome do Servico' },
   { id: 'preco', numeric: true, disablePadding: false, label: 'Preço' },
   { id: 'quantidade', numeric: true, disablePadding: false, label: 'Quantidade Consumida' },
   ];
@@ -110,15 +110,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
   return (
     <TableHead>
       <TableRow>
-        {/* <TableCell padding="checkbox">
-          <Checkbox
-            indeterminate={numSelected > 0 && numSelected < rowCount}
-            checked={rowCount > 0 && numSelected === rowCount}
-            onChange={onSelectAllClick}
-            inputProps={{ 'aria-label': 'select all desserts' }}
-          />
-        </TableCell>*/}
-        {headCells.map((headCell) => (
+      {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
             align={headCell.numeric ? 'right' : 'left'}
@@ -149,65 +141,6 @@ function EnhancedTableHead(props: EnhancedTableProps) {
     </TableHead>
   );
 }
-
-// const useToolbarStyles = makeStyles((theme: Theme) =>
-//   createStyles({
-//     root: {
-//       paddingLeft: theme.spacing(2),
-//       paddingRight: theme.spacing(1),
-//     },
-//     highlight:
-//       theme.palette.type === 'light'
-//         ? {
-//             color: theme.palette.secondary.main,
-//             backgroundColor: lighten(theme.palette.secondary.light, 0.85),
-//           }
-//         : {
-//             color: theme.palette.text.primary,
-//             backgroundColor: theme.palette.secondary.dark,
-//           },
-//     title: {
-//       flex: '1 1 100%',
-//     },
-//   }),
-// );
-
-// interface EnhancedTableToolbarProps {
-//   numSelected: number;
-// }
-
-// const EnhancedTableToolbar = (props: EnhancedTableToolbarProps) => {
-//   const classes = useToolbarStyles();
-//   const { numSelected } = props;
-
-//   return (
-//     <Toolbar
-//       className={clsx(classes.root, {
-//         [classes.highlight]: numSelected > 0,
-//       })}
-//     >
-//       {numSelected > 0 ? (
-//         <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
-//           Produtos
-//         </Typography>
-//       )}
-//       {numSelected > 0 ? (
-//         <Tooltip title="Delete">
-//           <IconButton aria-label="delete">
-//             <DeleteIcon />
-//           </IconButton>
-//         </Tooltip>
-//       ) : (
-//         <Tooltip title="Filter list">
-//           <IconButton aria-label="filter list">
-//             <FilterListIcon />
-//           </IconButton>
-//         </Tooltip>
-//       )}
-//     </Toolbar>
-//   );
-// };
-
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -251,7 +184,7 @@ export default function EnhancedTable() {
   };
   const handleSelectAllClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.checked) {
-      const newSelecteds = rows.map((n) => n.nomeProduto);
+      const newSelecteds = rows.map((n) => n.nomeServico);
       setSelected(newSelecteds);
       return;
     }
@@ -319,17 +252,17 @@ export default function EnhancedTable() {
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  const isItemSelected = isSelected(row.nomeProduto);
+                  const isItemSelected = isSelected(row.nomeServico);
                   const labelId = `enhanced-table-checkbox-${index}`;
 
                   return (
                     <TableRow
                       hover
-                      onClick={(event) => handleClick(event, row.nomeProduto)}
+                      onClick={(event) => handleClick(event, row.nomeServico)}
                       // role="checkbox"
                       // aria-checked={isItemSelected}
                       // tabIndex={-1}
-                      key={row.nomeProduto}
+                      key={row.nomeServico}
                       // selected={isItemSelected}
                     >
                       {/* <TableCell padding="checkbox">
@@ -339,7 +272,7 @@ export default function EnhancedTable() {
                         />
                       </TableCell> */}
                       <TableCell component="th" id={labelId} scope="row" padding="none">
-                        {row.nomeProduto}
+                        {row.nomeServico}
                       </TableCell>
                       <TableCell align="right">{row.preco}</TableCell>
                       <TableCell align="right">{row.quantidade}</TableCell>
