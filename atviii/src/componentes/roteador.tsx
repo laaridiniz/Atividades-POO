@@ -4,6 +4,7 @@ import FormularioCadastroCliente from "./formularioCadastroCliente";
 import FormularioCadastroProduto from "./formularioCadastroProduto";
 import FormularioCadastroServico from "./formularioCadastroServico";
 import ListaCliente from "./listaCliente";
+import ListagemProdutoGenero from "./listagemProdutosGenero";
 import ListaProduto from "./listaProduto";
 import ListaServico from "./listaServico";
 
@@ -30,7 +31,7 @@ export default class Roteador extends Component<{}, state> {
 
     render() {
         let barraNavegacao = <BarraNavegacao seletorView={this.selecionarView} tema="#33691e light-green darken-4" botoes={['Clientes', 'Cadastrar Cliente', 
-        'Produtos', 'Cadastrar Produto', 'Serviços', 'Cadastrar Serviço', 'Compras']} />
+        'Produtos', 'Cadastrar Produto', 'Serviços', 'Cadastrar Serviço', 'Listagem']} />
         if (this.state.tela === 'Clientes') {
             return (
                 <>
@@ -73,11 +74,11 @@ export default class Roteador extends Component<{}, state> {
                     <FormularioCadastroServico tema="#9ccc65 light-green lighten-1" />
                 </>
             )
-        } else if (this.state.tela === 'Compras') {
+        } else if (this.state.tela === 'Listagem') {
             return (
                 <>
                     {barraNavegacao}
-                    <FormularioCadastroCliente tema="#9ccc65 light-green lighten-1" />
+                    <ListagemProdutoGenero tema="#9ccc65 light-green lighten-1" />
                 </>
             )
         }
