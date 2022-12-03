@@ -28,7 +28,7 @@ interface Data {
   cpf: string;
   qtdeServ: number;
   qtdeProd: number;
-  valor: number;
+  valor: string;
 }
 
 function createData(
@@ -38,7 +38,7 @@ function createData(
     cpf: string,
     qtdeServ: number,
     qtdeProd: number,
-    valor: number,
+    valor: string,
 ): Data {
   return { nomeCliente, nomeSocial, genero, cpf, qtdeServ, qtdeProd, valor};
 }
@@ -49,15 +49,15 @@ var formatter = new Intl.NumberFormat('pt-BR', {
 })
 
 const rows = [
-  createData('Davi Elias', 'Davi', 'Masculino', '456.271.368-20', 10, 50, 1258.60),
-  createData('Larissa Diniz', 'Lari', 'Feminino', '423.395.638-01', 12, 5, 900.50),
-  createData('Jeniffer Pereira', 'Jenny', 'Feminino', '452.856.987-40', 18, 25, 1563.20),
-  createData('Mateus Silva', 'Math', 'Masculino', '433.621.789-06', 3, 11, 560.00),
-  createData('Everton Wanderley', 'Everton', 'Masculino', '412.423.365-04', 5, 7, 490.80),
-  createData('Everton Wanderley', 'Everton', 'Masculino', '412.423.365-04', 5,7, 490.80),
-  createData('Everton Wanderley', 'Everton', 'Masculino', '412.423.365-04', 5, 7, 490.80),
-  createData('Everton Wanderley', 'Everton', 'Masculino', '412.423.365-04', 5, 7, 490.80),
-  createData('Everton Wanderley', 'Everton', 'Masculino', '412.423.365-04', 5, 7, 490.80),
+  createData('Davi Elias', 'Davi', 'Masculino', '456.271.368-20', 10, 50, formatter.format(1258.60)),
+  createData('Larissa Diniz', 'Lari', 'Feminino', '423.395.638-01', 12, 5, formatter.format(900.50)),
+  createData('Jeniffer Pereira', 'Jenny', 'Feminino', '452.856.987-40', 18, 25, formatter.format(1563.20)),
+  createData('Mateus Silva', 'Math', 'Masculino', '433.621.789-06', 3, 11, formatter.format(560.00)),
+  createData('Everton Wanderley', 'Everton', 'Masculino', '412.423.365-04', 5, 7, formatter.format(490.80)),
+  createData('Everton Wanderley', 'Everton', 'Masculino', '412.423.365-04', 5,7, formatter.format(490.80)),
+  createData('Everton Wanderley', 'Everton', 'Masculino', '412.423.365-04', 5, 7, formatter.format(490.80)),
+  createData('Everton Wanderley', 'Everton', 'Masculino', '412.423.365-04', 5, 7, formatter.format(490.80)),
+  createData('Everton Wanderley', 'Everton', 'Masculino', '412.423.365-04', 5, 7, formatter.format(490.80)),
 ];
 
 function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
@@ -274,7 +274,7 @@ export default function TabelaClientes() {
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
                 //   const isItemSelected = isSelected(row.nomeServico);
-                  const labelId = `enhanced-table-checkbox-${index}`;
+                  const labelId = `enhanced-table-${index}`;
 
                   return (
                     <TableRow
@@ -300,7 +300,7 @@ export default function TabelaClientes() {
                       <TableCell align="right">{row.cpf}</TableCell>
                       <TableCell align="right">{row.qtdeServ}</TableCell>
                       <TableCell align="right">{row.qtdeProd}</TableCell>
-                      <TableCell align="right">{formatter.format(row.valor)}</TableCell>
+                      <TableCell align="right">{row.valor}</TableCell>
                     </TableRow>
                   );
                 })}
