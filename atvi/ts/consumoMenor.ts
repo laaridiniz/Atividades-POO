@@ -53,7 +53,6 @@ export default class MenorConsumo extends Listagem{
         console.log(`Nome: ${cliente.nome}`);
         console.log(`CPF: ${cliente.cpf}`);
         console.log(`Quantidade de produtos e servicos consumidos: ${cliente.quantidade}`);
-        console.log("\n-------------------------------------------\n");
       });
     }
   }

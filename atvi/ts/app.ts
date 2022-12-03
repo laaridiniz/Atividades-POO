@@ -13,7 +13,7 @@ import ExcluirServico from "./excluirServico";
 import AtualizarCliente from "./atualizarCliente";
 import Cliente from "./cliente";
 import cpf from "./cpf";
-import Rg from "./Rg";
+import Rg from "./rg";
 import Telefone from "./telefone";
 import Servico from "./servico";
 import Produto from "./produto";
@@ -60,27 +60,27 @@ let c28 = new Cliente('Helena', 'Ravaglia', 'F', new cpf('5244448478-68', new Da
 let c29 = new Cliente('Giovanna', 'Liparelli', 'F', new cpf('123587787-15', new Date()),[new Rg('369415582-1', new Date()),new Rg('357774447-3', new Date())], [new Telefone('13', '898744554'), new Telefone('11', '858554577')])
 let c30 = new Cliente('Rafaela', 'Queiroz', 'F', new cpf('2565455454-58', new Date()),[new Rg('4575554474-7', new Date()),new Rg('985540597-1', new Date())], [new Telefone('22', '6952214254'), new Telefone('12', '58747555')])
 
-let s1 = new Servico('URCNS','Unha',15);
-let s2 = new Servico('KAMDD','Limpeza',50);
-let s3 = new Servico('SFJID','Sobrancelha',60);
-let s4 = new Servico('DSERg','Corte',20);
-let s5 = new Servico('WEERF','Maquiagem',70);
-let s6 = new Servico('TFRJE','Pedicure',40);
-let s7 = new Servico('RTUTE','Botox',80);
-let s8 = new Servico('WEHIW','Preenchimento',45);
-let s9 = new Servico('RYIUJ','Cílios',60);
-let s10 = new Servico('EHJFH','Depilação',25);
+let s1 = new Servico('Unha','URCNS',15);
+let s2 = new Servico('Limpeza','KAMDD',50);
+let s3 = new Servico('Sobrancelha','SFJID',60);
+let s4 = new Servico('Corte','DSERG',20);
+let s5 = new Servico('Maquiagem','WEERF',70);
+let s6 = new Servico('Pedicure','TFRJE',40);
+let s7 = new Servico('Botox','RTUTE',80);
+let s8 = new Servico('Preenchimento','WEHIW',45);
+let s9 = new Servico('Cílios','RYIUJ',60);
+let s10 = new Servico('Depilação','EHJFH',25);
 
-let p1 = new Produto('YJHDS','Xampu',20);
-let p2 = new Produto('RTEYU','Esmalte',15);
-let p3 = new Produto('RYTU7','Camisa',30);
-let p4 = new Produto('YTJUR','Cera',35);
-let p5 = new Produto('IKYTT','Rímel',80);
-let p6 = new Produto('EWMKR','Secador',200);
-let p7 = new Produto('WHUWF','Demaquilante',60);
-let p8 = new Produto('REWOD','Acetona',40);
-let p9 = new Produto('IEKFE','Batom',25);
-let p10 = new Produto('DFJGI','Pente',10);
+let p1 = new Produto('Xampu','YJHDS',20);
+let p2 = new Produto('Esmalte','RTEYU',15);
+let p3 = new Produto('Camisa','RYTU7',30);
+let p4 = new Produto('Cera','YTJUR',35);
+let p5 = new Produto('Rímel','IKYTT',80);
+let p6 = new Produto('Secador','EWMKR',200);
+let p7 = new Produto('Demaquilante','WHUWF',60);
+let p8 = new Produto('Acetona','REWOD',40);
+let p9 = new Produto('Batom','IEKFE',25);
+let p10 = new Produto('Pente','DFJGI',10);
 
 c1.addProduto(p1)
 c1.addProduto(p1)

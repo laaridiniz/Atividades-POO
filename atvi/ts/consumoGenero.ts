@@ -5,6 +5,7 @@ import Servico from "./servico";
 import Consumo from "./consumo";
 import OrdenadorConsumo from "./consumoOrdem";
 import Listagem from "./listagem";
+import Empresa from "./empresa";
 
 export default class GeneroConsumo extends Listagem {
   private clientes: Array<Cliente>
@@ -54,9 +55,10 @@ export default class GeneroConsumo extends Listagem {
     ordenadorFem.consumo = consumoFem
 
     let consumoOrdenadosFem = ordenadorFem.ordenarConsumo()
-    console.log("Gênero Feminino - Produtos mais consumidos: ")
-    console.log(consumoOrdenadosFem);
-
+    console.log("-------------------------------------------------\nGênero Feminino - Produtos mais consumidos: ")
+    for(var i = 0; i < consumoOrdenadosFem.length; i++){
+      console.log(`${i+1}º Produto - Nome: ${consumoOrdenadosFem[i].nome} - Quantidade: ${consumoOrdenadosFem[i].valor}`);
+    };
     // verifica serviços
     let consumoServico: Consumo[] = []
 
@@ -82,9 +84,10 @@ export default class GeneroConsumo extends Listagem {
     ordenadorServicoFem.consumo = consumoServico
 
     let consumoOrdenadoServicoFem = ordenadorServicoFem.ordenarConsumo()
-    console.log("Serviços mais consumidos pelo gênero feminino: ")
-    console.log(consumoOrdenadoServicoFem);
-
+    console.log("---------------------------------------------\nGênero Feminino - Serviços mais consumidos: ")
+    for(var i = 0; i < consumoOrdenadoServicoFem.length; i++){
+      console.log(`${i+1}º Serviço - Nome: ${consumoOrdenadoServicoFem[i].nome} - Quantidade: ${consumoOrdenadoServicoFem[i].valor}`);
+    };
 
     //masculino
     let generoClienteMasc = 'M';
@@ -120,8 +123,10 @@ export default class GeneroConsumo extends Listagem {
     ordenador.consumo = consumoMasc
 
     let consumoMascOrdenados = ordenador.ordenarConsumo()
-    console.log("Gênero Masculino - Produtos mais consumidos: ")
-    console.log(consumoMascOrdenados);
+    console.log("----------------------------------------\nGênero Masculino - Produtos mais consumidos: ")
+    for(var i = 0; i < consumoMascOrdenados.length; i++){
+      console.log(`${i+1}º Produto - Nome: ${consumoMascOrdenados[i].nome} - Quantidade: ${consumoMascOrdenados[i].valor}`);
+    };
 
     //verifica serviços
 
@@ -149,10 +154,10 @@ export default class GeneroConsumo extends Listagem {
     ordenadorServicoMasc.consumo = consumoServicoMasc
 
     let consumoOrdenadosServM = ordenadorServicoMasc.ordenarConsumo()
-    console.log("Gênero Masculino - Serviços mais consumidos: ")
-    console.log(consumoOrdenadosServM);
-
-
+    console.log("---------------------------------------\nGênero Masculino - Serviços mais consumidos: ")
+    for(var i = 0; i < consumoOrdenadosServM.length; i++){
+      console.log(`${i+1}º Serviço - Nome: ${consumoOrdenadosServM[i].nome} - Quantidade: ${consumoOrdenadosServM[i].valor}`);
+    };
     
   }
 }

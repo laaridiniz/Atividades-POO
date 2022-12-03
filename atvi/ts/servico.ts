@@ -16,6 +16,11 @@ export default class Servico{
     public get getValor(){
         return this.valor
     }
+    
+    public get getNome(){
+        return this.nome
+    }
+
     public setValor(valor:number){
         this.valor = valor
     }

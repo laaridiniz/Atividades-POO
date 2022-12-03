@@ -22,23 +22,13 @@ class CadastroCliente extends cadastro_1.default {
         var genero = this.entrada.receberTexto(`Por favor informe o gênero do cliente: `);
         var valor = this.entrada.receberTexto(`Por favor informe o número do cpf: `);
         var data = this.entrada.receberTexto(`Por favor informe a data de emissão do cpf (dd/mm/yyyy): `);
-        var partesData = data.split('/');
-        var ano = new Number(partesData[2].valueOf()).valueOf();
-        var mes = new Number(partesData[1].valueOf()).valueOf();
-        var dia = new Number(partesData[0].valueOf()).valueOf();
-        var dataEmissao = new Date(ano, mes, dia);
-        var CPF = new cpf_1.default(valor, dataEmissao);
+        var CPF = new cpf_1.default(valor, this.formatData(data));
         let plusRg = true;
         let rgs = [];
         while (plusRg) {
             let rg = this.entrada.receberTexto(`Insira o número do RG: `);
             let dataRg = this.entrada.receberTexto(`Insira a data de emissão do RG: `);
-            var partesData = dataRg.split('/');
-            var ano = new Number(partesData[2].valueOf()).valueOf();
-            var mes = new Number(partesData[1].valueOf()).valueOf();
-            var dia = new Number(partesData[0].valueOf()).valueOf();
-            var dataEmissao = new Date(ano, mes, dia);
-            var novoRg = new rg_1.default(rg, dataEmissao);
+            var novoRg = new rg_1.default(rg, this.formatData(dataRg));
             rgs.push(novoRg);
             console.log(`RG salvo!`);
             var opcao = this.entrada.receberNumero(`Digite 1 para adicionar outro RG ou 0 para seguir com o cadastro: `);
