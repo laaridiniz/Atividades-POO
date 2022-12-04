@@ -14,10 +14,10 @@ class ExcluirServico extends excluir_1.default {
     }
     Excluir() {
         var _a;
-        var serviço = this.entrada.receberTexto("Informe o código do serviço que deseja excluir: ");
-        var index = this.servicos.findIndex(i => i.getCod === serviço);
-        console.log(`Serviço ` + ((_a = this.servicos.find(i => i.getCod === serviço)) === null || _a === void 0 ? void 0 : _a.nome));
-        console.log(`Realmente deseja excluir este produto?`);
+        var servico = this.entrada.receberTexto("Informe o código do serviço que deseja excluir: ");
+        var index = this.servicos.findIndex(i => i.getCod === servico);
+        console.log(`Serviço ` + ((_a = this.servicos.find(i => i.getCod === servico)) === null || _a === void 0 ? void 0 : _a.nome));
+        console.log(`Realmente deseja excluir este serviço?`);
         var resp = this.entrada.receberNumero(`1 - Excluir, 2 - Cancelar`);
         if (resp == 1) {
             this.servicos.splice(index, 1);

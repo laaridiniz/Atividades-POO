@@ -13,65 +13,60 @@ export default class GeneroCliente extends Listagem{
         let fem: Cliente[] = [];
 
         this.clientes.forEach( clientes => {
-            if(clientes.genero === "Masculino"){
+            if(clientes.genero === "M"){
                 masc.push(clientes);
-            } else if( clientes.genero === "Feminino"){
+            } else if( clientes.genero === "F"){
                 fem.push(clientes);
             }
         })       
 
         console.log("Listagem de Clientes por Gênero");
         console.log("Masculino: \n");
+        console.log(`Lista de clientes:\n`);
 
-        //Masculino
-        console.log(`\n----------------------------------------\n`);
         masc.forEach(masc=>{
-            console.log(`\nLista de clientes:`);
-            this.clientes.forEach(cliente => {
-                console.log(`Nome: ` + cliente.nome);
-                console.log(`Nome social: ` + cliente.nomeSocial);
-                console.log(`Gênero: ` + cliente.genero);
-                console.log(`CPF: ` + cliente.getCpf.getValor);
-                console.log(`Data de emissão CPF: ` + cliente.getCpf.getDataEmissao.toLocaleDateString());            
-    
-                let rgs = cliente.getRgs;
-                for (let i = 0; i < rgs.length; i++) {
-                    console.log(`Rg: ` + rgs[i].getNumero)
-                    console.log(`Data Emissão RG: ` + rgs[i].getDataEmissao.toLocaleDateString())
-                }
-                let telefones = cliente.getTelefones;
-                for (let i = 0; i < telefones.length; i++) {
-                    console.log('Telefone: (' + telefones[i].getDdd + ') '+ telefones[i].getNumero);
-                }
-    
-                console.log(`--------------------------------------`);
-            });
+            
+            console.log(`Nome: ` + masc.nome);
+            console.log(`Nome social: ` + masc.nomeSocial);
+            console.log(`Gênero: ` + masc.genero);
+            console.log(`CPF: ` + masc.getCpf.getValor);
+            console.log(`Data de emissão CPF: ` + masc.getCpf.getDataEmissao.toLocaleDateString());            
+
+            let rgs = masc.getRgs;
+            for (let i = 0; i < rgs.length; i++) {
+                console.log(`Rg: ` + rgs[i].getNumero)
+                console.log(`Data Emissão RG: ` + rgs[i].getDataEmissao.toLocaleDateString())
+            }
+            let telefones = masc.getTelefones;
+            for (let i = 0; i < telefones.length; i++) {
+                console.log('Telefone: (' + telefones[i].getDdd + ') '+ telefones[i].getNumero);
+            }
+
+            console.log(`--------------------------------------`);
         })
 
         //Feminino
         console.log("Feminino:");
+        console.log(`\nLista de clientes:`);
         console.log("\n");
         fem.forEach( fem => {
-            console.log(`\nLista de clientes:`);
-            this.clientes.forEach(cliente => {
-                console.log(`Nome: ` + cliente.nome);
-                console.log(`Nome social: ` + cliente.nomeSocial);
-                console.log(`Gênero: ` + cliente.genero);
-                console.log(`CPF: ` + cliente.getCpf.getValor);
-                console.log(`Data de emissão CPF: ` + cliente.getCpf.getDataEmissao.toLocaleDateString());            
+            console.log(`Nome: ` + fem.nome);
+            console.log(`Nome social: ` + fem.nomeSocial);
+            console.log(`Gênero: ` + fem.genero);
+            console.log(`CPF: ` + fem.getCpf.getValor);
+            console.log(`Data de emissão CPF: ` + fem.getCpf.getDataEmissao.toLocaleDateString());            
 
-                let rgs = cliente.getRgs;
-                for (let i = 0; i < rgs.length; i++) {
-                    console.log(`Rg: ` + rgs[i].getNumero)
-                    console.log(`Data Emissão RG: ` + rgs[i].getDataEmissao.toLocaleDateString())
-                }
-                let telefones = cliente.getTelefones;
-                for (let i = 0; i < telefones.length; i++) {
-                    console.log('Telefone: (' + telefones[i].getDdd + ') '+telefones[i].getNumero);
-                }
+            let rgs = fem.getRgs;
+            for (let i = 0; i < rgs.length; i++) {
+                console.log(`Rg: ` + rgs[i].getNumero)
+                console.log(`Data Emissão RG: ` + rgs[i].getDataEmissao.toLocaleDateString())
+            }
+            let telefones = fem.getTelefones;
+            for (let i = 0; i < telefones.length; i++) {
+                console.log('Telefone: (' + telefones[i].getDdd + ') '+telefones[i].getNumero);
+            }
 
-                console.log(`--------------------------------------`);
-            });
+            console.log(`--------------------------------------`);
         })
     }
 }

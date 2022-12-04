@@ -12,7 +12,7 @@ export default class ListagemServicos extends Listagem {
         console.log(`\nLista dos serviços:`);
         if(this.servicos.length > 0){
             this.servicos.forEach(serv => {
-                console.log("Código: "+serv.getCod+" - "+serv.nome+"\nPreço: "+this.formatter.format(serv.getValor));
+                console.log("Código: "+serv.getCod+" - "+"Nome: "+serv.nome+"\nPreço: "+this.formatter.format(serv.getValor));
                 console.log(`--------------------------------------`);
             });
         } else {

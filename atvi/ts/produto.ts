@@ -3,7 +3,7 @@ export default class Produto {
     public nome!: string;
     public valor!: number;
 
-    constructor(cod:string,nome:string,valor:number){
+    constructor(nome:string,cod:string,valor:number){
         this.nome = nome
         this.cod = cod
         this.valor = valor

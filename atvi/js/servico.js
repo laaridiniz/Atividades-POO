@@ -12,6 +12,9 @@ class Servico {
     get getValor() {
         return this.valor;
     }
+    get getNome() {
+        return this.nome;
+    }
     setValor(valor) {
         this.valor = valor;
     }

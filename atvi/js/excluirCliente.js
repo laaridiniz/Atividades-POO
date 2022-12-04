@@ -12,20 +12,26 @@ class ExcluirCliente extends excluir_1.default {
         this.clientes = clientes;
     }
     Excluir() {
-        var _a;
         let entrada = new entrada_1.default();
-        var cliente = entrada.receberTexto("Informe o CPF do cliente que deseja deletar");
+        var cliente = entrada.receberTexto("Informe o CPF do cliente que deseja deletar: ");
         var index = this.clientes.findIndex(i => i.getCpf.getValor === cliente);
-        console.log(`Cliente ` + ((_a = this.clientes.find(i => i.getCpf.getValor === cliente)) === null || _a === void 0 ? void 0 : _a.nome));
-        console.log(`Realmente deseja excluir este cliente?`);
-        var resp = entrada.receberNumero(`1 - Excluir, 2 - Cancelar`);
-        if (resp == 1) {
-            this.clientes.splice(index, 1);
-            console.log(`Cliente excluído com sucesso!`);
-            console.log(`----------------------------------------`);
+        var encontrado = this.clientes.find(element => element.getCpf.getValor == cliente);
+        if (encontrado !== undefined) {
+            console.log(`Cliente ` + encontrado.nome);
+            console.log(`Realmente deseja excluir este cliente?`);
+            var resp = entrada.receberNumero(`1 - Excluir, 2 - Cancelar`);
+            console.log("");
+            if (resp == 1) {
+                this.clientes.splice(index, 1);
+                console.log(`Cliente excluído com sucesso!`);
+                console.log(`----------------------------------------`);
+            }
+            else {
+                console.log(`Operação cancelada!`);
+            }
         }
         else {
-            console.log(`Operação cancelada!`);
+            console.log(`Cliente não encontrado!`);
         }
     }
 }
