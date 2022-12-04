@@ -1,3 +1,5 @@
+<h1 align="center">🔸Atividade 1🔸</h1>
+
 ## Contextualização
 
 <p align="justify">Muitos microempresários não possuem um programa de cadastro de clientes. Eles acreditam que cadastrar clientes é uma tarefa que demanda muito tempo e não traz retorno, mas isso é um erro. Sem ter uma base de dados dos clientes não é possível ter informações relevantes sobre seus consumidores. 
