@@ -30,9 +30,14 @@ A agenda deverá ter as seguintes funcionalidades de cadastro:<br></p>
   
 <p align="justify">A equipe de TI, que trabalha no grupo WB, forneceu um diagrama de classes e um repositório para auxiliar o desenvolvimento do sistema. Este sistema, começou como um projeto interno, mas tornou-se inviável porque 
 a equipe do grupo WB não possui a competência técnica que a sua empresa disponibiliza. A Figura 1 mostra o diagrama de classe criado pela equipe de TI do grupo WB.<br>
+<br></p>
+
+<div align="center">
+  <img src="Imagens/Diagrama.jpg" width="80%" height="80%"/>
+ </div>
 <br>
-A equipe de TI do grupo WB deixou o software desenvolvido em um repositório remoto, disponível no endereço: https://github.com/gerson-pn/atvi-wb-typescript. A Figura 2 contém um código, com o caminho 
-para o repositório remoto, onde estão os códigos de auxílio.<br>
+
+<p align="justify">A equipe de TI do grupo WB deixou o software desenvolvido em um repositório remoto, disponível no endereço: https://github.com/gerson-pn/atvi-wb-typescript.<br>
 <br>
 Muito do que o grupo WB precisa ainda não está implementado. Desta forma o grupo WB listou algumas funcionalidades que o sistema precisa ter, elas são:<br></p>
 
